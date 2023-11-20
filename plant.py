@@ -32,8 +32,8 @@ def get_files(directory):
     return count
 
 
-train_dir = "citrus dataset/Train11/Train11"
-test_dir = "citrus dataset/Test11"
+train_dir = "Train11/4_disease_train"
+test_dir = "Test11/4_disease_test"
 
 train_samples = get_files(train_dir)
 num_classes = len(glob.glob(train_dir + "/*"))
@@ -119,14 +119,35 @@ def prepare(img_path):
 
 
 result = model.predict([prepare(
-    'Tomato___Early_blight/0034a551-9512-44e5-ba6c-827f85ecc688___RS_Erly.B 9432.JPG')])
+    'Test11/4_disease_test/Tomato___Tomato_Yellow_Leaf_Curl_Virus/13037cc9-ffd8-4b9a-9077-f29346e47b9d___YLCV_NREC 2176.JPG')])
 
 disease = image.load_img(
-    'Tomato___Early_blight/0034a551-9512-44e5-ba6c-827f85ecc688___RS_Erly.B 9432.JPG')
+    'Test11/4_disease_test/Tomato___Tomato_Yellow_Leaf_Curl_Virus/13037cc9-ffd8-4b9a-9077-f29346e47b9d___YLCV_NREC 2176.JPG')
 plt.imshow(disease)
 print(result)
 
 import numpy as np
-
-classresult = np.argmax(result, axis=1)
+classresult=np.argmax(result,axis=1)
 print(classes[classresult[0]])
+
+classes=list(train_generator.class_indices.keys())
+import numpy as np
+import matplotlib.pyplot as plt
+# Pre-Processing test data same as train data.
+img_width=224
+img_height=224
+model.compile(optimizer='adam',loss='categorical_crossentropy',metrics=['accuracy'])
+from tensorflow.keras.preprocessing import image
+def prepare(img_path):
+    img = image.load_img(img_path, target_size=(224,224))
+    x = image.img_to_array(img)
+    x = x/255
+    return np.expand_dims(x, axis=0)
+
+
+result = model.predict([prepare('Test11/gj_citrus_disease_naduruloulou_lesions_underside.jpg')])
+
+disease=image.load_img('Test11/gj_citrus_disease_naduruloulou_lesions_underside.jpg')
+plt.imshow(disease)
+print(result)
+

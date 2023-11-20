@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In / Sign Up</title>
+
+    <script src="https://kit.fontawesome.com/9e70e02588.js" crossorigin="anonymous"></script>
+  <style>
+    body{
+  font-family: Montserrat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto ;
+  overflow: hidden;
+  position: relative;
+  opacity: 1;
+  overflow: auto;
+  background-image: url(light-green-abstract-texture-background_851755-125.avif);
+  background-color: #cccccc;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+/* background: linear-gradient(132deg, rgba(42,108,54,1) 0%, rgba(15,116,69,1) 32%, rgba(0,255,192,1) 100%); */
+
+  @media only screen and (max-width:480px){
+    @media screen and (max-height: 720px) {
+      overflow:scroll ;
+    }
+  overflow: scroll;
+  }
+}
+.container{
+  background: rgb(80,151,44);
+  background: linear-gradient(132deg, rgba(80,151,44,1) 0%, rgba(22,180,80,1) 32%, rgba(0,255,119,1) 100%);
+  border-radius: 10px;
+  width: 385px;
+  max-width: 100%;
+  min-height: 480px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 14px 28px rgba(0, 0, 0, .25),0px 10px 20px rgba(0, 0, 0, .22);
+  @media only screen and (max-width:960px){
+    width: 340px;
+    min-height: 440px;
+}
+}
+.form{
+  font-family: 'Times New Roman', Times, serif;
+  opacity: 1;
+  background: rgb(80,151,44);
+  background: linear-gradient(132deg, rgba(80,151,44,1) 0%, rgba(22,180,80,1) 32%, rgba(0,255,119,1) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  padding: 50px 50px;
+  text-align: center;
+  @media screen and (max-width:600px) {
+    padding: 0 50px;
+   }
+}
+
+.google-signin{
+  display: flex;
+  justify-content: space-evenly ;
+  background-color: rgb(0, 0, 0);
+  width: 100%;
+  border: 2px soild black;
+  border-radius: 15px;
+  font-weight: 200;
+  margin: 20px 0 20px 0;
+  cursor: pointer;
+  align-items: center;
+  padding: 0px 8px;
+  color: white;
+  & button{
+    border: 2px solid rgb(80, 80, 80);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    padding: 10px;
+  }
+  & span{
+    color: #fff;
+    transform: translateX(100%);
+  }
+
+}
+
+.switch{
+
+  font-family: 'Times New Roman', Times, serif;
+  text-decoration: none;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+  border-radius: 20px;
+  /* padding: 10px 10px; */
+  width: 50%;
+  border: none;
+  margin: 20px auto;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+
+.switch .toggle-btn{
+  padding: 10px;
+  flex: 1;
+  border-radius: 20px;
+
+}
+
+.active{
+  background-color: rgb(255, 255, 255);
+  color: black;
+
+}
+
+input{
+  border-radius: 10px;
+  margin: 0px 10px;
+  font-family: 'Times New Roman', Times, serif;
+  border: none;
+  background-color: #d3e4f1;
+  width: 100%;
+  margin: 5px 0;
+  padding: 8px;
+  outline: none;
+  &:active{
+  transform: scale(.98);
+  }
+}
+
+.sign{
+  font-family: 'Times New Roman', Times, serif;
+  text-decoration: none;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+  border-radius: 20px;
+  padding: 10px 20px;
+  width: 50%;
+  border: none;
+  margin: 20px auto;
+  font-weight: bold;
+  cursor: pointer;
+  &:active{
+  transform: scale(.9);
+
+  }
+}
+  </style>
+  </head>
+
+<body>
+    <div class="container">
+      <div class="switch">
+        <div id="signIn" class="toggle-btn active"><a  id="sign-in">Sign In</a></div>
+        <div id="signUp" class="toggle-btn"><a id="sign-up">Sign Up</a></div>
+      </div>
+      <div class="form">
+        <div id="sign-in-form">
+          <h1>Sign In</h1>
+          <div class="google-signin" onclick="signIn()" >
+            <i class="fa-brands fa-google fa-beat" style="color: #ffffff;"></i>
+            <h4>Sign In with Google</h4>
+          </div>
+          <div style="color: #ffffff; font-size: 20px;">--------------(or)--------------</div>
+          <br>
+          <input type="email" placeholder="Email">
+          <br>
+          <br>
+          <input type="password" placeholder="Password">
+          <br>
+          <br>
+          <button class="sign" >Sign In</button>
+        </div>
+        <div id="sign-up-form">
+          <h1>Sign Up</h1>
+          <div class="google-signin" onclick="signIn()" >
+            <i class="fa-brands fa-google fa-beat" style="color: #ffffff;"></i>
+            <h4>Sign Up with Google</h4>
+          </div>
+          <div style="color: #ffffff; font-size: 20px;">--------------(or)--------------</div>
+          <br>
+            <input type="name" placeholder="Name">
+            <br>
+            <br>
+            <input type="email" placeholder="Email">
+            <br>
+            <br>
+            <input type="password" placeholder="Password">
+            <br>
+            <br>
+            <input type="password" placeholder="Confirm-Password">
+            <br>
+            <br>
+            <button class="sign">Sign Up</button>
+          </div>
+        </div>
+      </div>
+<script>
+  // const signIn = document.getElementById('signIn');
+// const signUp = document.getElementById('signUp');
+
+
+document.querySelector("#sign-in-form").style.display = "block";
+document.querySelector("#sign-up-form").style.display = "none";
+
+
+
+
+document.querySelector("#sign-in").addEventListener("click", function() {
+    document.querySelector("#sign-in-form").style.display = "block";
+    document.querySelector("#sign-up-form").style.display = "none";
+    var addcls = document.getElementById("signIn");
+    addcls.classList.toggle("active");
+    var cls = document.getElementById("signUp");
+    cls.classList.remove("active");
+  });
+
+  document.querySelector("#sign-up").addEventListener("click", function() {
+    document.querySelector("#sign-in-form").style.display = "none";
+    document.querySelector("#sign-up-form").style.display = "block";
+    var cls = document.getElementById("signIn");
+    cls.classList.remove("active");
+    var addcls = document.getElementById("signUp");
+    addcls.classList.toggle("active");
+});
+
+
+
+
+
+
+
+
+
+
+
+//continue with google
+function signIn(){
+    let oauth2Endpoint="https://accounts.google.com/o/oauth2/v2/auth" ;
+    let form=document.createElement('form');
+    form.setAttribute('method','GET');
+    form.setAttribute('action',oauth2Endpoint);
+    let params={
+        "client_id":"39640652138-6ihu7un7hku3j29g9k5cs1d9bq28upqh.apps.googleusercontent.com",
+        "redirect_uri":"http://127.0.0.1:63342/main.html",
+        "response_type":"token",
+        "scope":"https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.profile",
+        "include_granted_scopes":'true',
+        'state':'pass-through-value'
+    }
+
+    for(var p in params){
+        let input=document.createElement('input');
+        input.setAttribute('type','hidden');
+        input.setAttribute('name', p);
+        input.setAttribute('value',params[p]);
+        form.appendChild(input);
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+}
+
+
+
+
+
+
+
+</script>
+</body>
+
+</html>
